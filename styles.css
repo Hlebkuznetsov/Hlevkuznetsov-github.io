@@ -161,13 +161,21 @@ a {
     transition: transform 0.3s ease;
 }
 
-.menu-item img {
+/* .menu-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    height: 200px;
+} */
+.menu-item video {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
     object-fit: cover;
     height: 200px;
 }
+
 
 .menu-item h3 {
     color: #fff;
@@ -178,9 +186,9 @@ a {
     color: #ccc;
 }
 
-.menu-item:hover {
+/* .menu-item:hover {
     transform: scale(1.03);
-}
+} */
 
 /* About & Contact */
 .about-section,
@@ -367,4 +375,131 @@ input[type="date"] {
 .social-icons a:hover img {
     transform: scale(1.2);
     opacity: 1;
+}
+
+
+.menu-actions {
+    margin-top: 15px;
+}
+
+.learn-more-btn,
+.order-btn {
+    background-color: #fa865e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.learn-more-btn:hover,
+.order-btn:hover {
+    background-color: #f75a26;
+}
+
+.extra-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+}
+
+.menu-item.expanded .extra-text {
+    max-height: 2000px;
+    opacity: 1;
+}
+
+.extra-text p {
+    color: #ccc;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.catering-success-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.catering-success-text .emoji-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.catering-success-text h4,
+.catering-success-text h5 {
+    margin-top: 20px;
+    color: #fa865e;
+    font-size: 1.05rem;
+}
+
+.catering-success-text ul {
+    margin-top: 10px;
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.catering-success-text ul li {
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 16px;
+    margin: 20px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+    flex-shrink: 0;
+}
+
+.carousel-dots {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.carousel-dots .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+    background-color: #fa865e;
 }

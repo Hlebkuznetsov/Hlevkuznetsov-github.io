@@ -54,12 +54,12 @@
         </div>
     </section>
 
-    <section id="services" class="menu-section">
+    <!-- <section id="services" class="menu-section">
         <h2>Our Services</h2>
         <div class="menu-items">
             <div class="menu-item">
                 <img src="img/catering.jpg" alt="Cocktail Catering" />
-                <h3>Cocktail Catering</h3>
+                <h3>Cocktail Bar Catering</h3>
                 <p>Professional cocktail service for events, parties and corporate gatherings.</p>
             </div>
             <div class="menu-item">
@@ -73,7 +73,122 @@
                 <p>Elegant champagne towers for weddings, galas, and luxury events.</p>
             </div>
         </div>
+    </section> -->
+    <section id="services" class="menu-section">
+        <h2>Our Services</h2>
+        <div class="menu-items">
+
+            <div class="menu-item">
+                <video autoplay muted loop playsinline>
+                    <source src="video/catering.mp4" type="video/mp4" />
+                </video>
+                <h3>Cocktail Bar Catering</h3>
+                <p>Turn your celebration into a true experience. Our cocktail bar combines modern design, premium
+                    drinks, and exceptional service. All brought right to you.</p>
+                <div class="menu-actions">
+                    <button class="learn-more-btn">Learn more</button>
+                    <div class="extra-text">
+                        <div class="carousel">
+                            <div class="carousel-track">
+                                <img src="img/1.jpg" alt="Slide 1" />
+                                <img src="img/2.jpg" alt="Slide 2" />
+                                <img src="img/3.jpg" alt="Slide 3" />
+                            </div>
+
+                        </div>
+                        <div class="carousel-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+
+
+                        <div class="catering-success-text">
+                            <p class="emoji-title">🥂 The Recipe for Our Success</p>
+                            <p>We care about every guest and know how to deliver an unforgettable experience.</p>
+
+                            <h4>1. Elegance</h4>
+                            <p>We believe beauty lives in the details.<br>
+                                From the modern design of our bars to the fine glassware that holds each drink — every
+                                element matters.</p>
+
+                            <h4>2. Professionalism</h4>
+                            <p>Every event is unique.<br>
+                                We listen closely to your vision, because we know how important it is to you.<br>
+                                With years of international experience, our team brings the highest level of service to
+                                every celebration — making your special day effortless and extraordinary.</p>
+
+                            <h4>3. Refinement</h4>
+                            <p>Every cocktail is a work of art.<br>
+                                We carefully consider its look, texture, flavor, and aroma, so each sip leaves a lasting
+                                impression.<br>
+                                We don’t just make drinks — we create experiences.</p>
+
+                            <p class="emoji-title">🍸 What Is Cocktail Bar Catering?</p>
+
+                            <h5>✅ Visual Aesthetics</h5>
+                            <ul>
+                                <li>Full-size bar setup in a style that fits your event</li>
+                                <li>Premium, modern glassware</li>
+                                <li>Elegant signature cocktails</li>
+                            </ul>
+
+                            <h5>✅ Drinks</h5>
+                            <ul>
+                                <li>Unique signature creations & timeless classics</li>
+                                <li>Natural and homemade ingredients</li>
+                                <li>Refined cocktail presentation</li>
+                            </ul>
+
+                            <h5>✅ Service</h5>
+                            <ul>
+                                <li>Skilled, experienced mixologists</li>
+                                <li>Personalized approach to every event</li>
+                                <li>Turnkey solutions from start to finish</li>
+                            </ul>
+                        </div>
+
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <video autoplay muted loop playsinline>
+                    <source src="video/bartender.mp4" type="video/mp4" />
+                </video>
+                <h3>Bartender Show</h3>
+                <p>Get ready for a spectacular flair bartending show — a mix of jaw-dropping tricks, smooth
+                    choreography, and artistic flair that will leave your guests amazed.</p>
+                <div class="menu-actions">
+                    <button class="learn-more-btn">Learn more</button>
+                    <div class="extra-text">
+                        <p>Additional info about Bartender Show. Feel free to personalize this content later.</p>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <video autoplay muted loop playsinline>
+                    <source src="video/tower.mp4" type="video/mp4" />
+                </video>
+                <h3>Champagne Tower</h3>
+                <p>Make your favorite drink the star of the night! Our Champagne Tower is a stunning centerpiece that
+                    not only impresses your guests but also creates a fun and memorable photo moment.</p>
+                <div class="menu-actions">
+                    <button class="learn-more-btn">Learn more</button>
+                    <div class="extra-text">
+                        <p>More about Champagne Tower. You can change this to match your marketing message.</p>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
+
+
 
     <section id="about" class="about-section">
         <h2>About Us</h2>
@@ -179,6 +294,65 @@
         });
     </script>
 
+    <script>
+        document.querySelectorAll('.learn-more-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const currentItem = btn.closest('.menu-item');
+                const isExpanded = currentItem.classList.contains('expanded');
+
+                // Закрыть все блоки
+                document.querySelectorAll('.menu-item.expanded').forEach(item => {
+                    item.classList.remove('expanded');
+                    item.querySelector('.learn-more-btn').textContent = 'Learn more';
+                });
+
+                // Если не был открыт — открыть текущий
+                if (!isExpanded) {
+                    currentItem.classList.add('expanded');
+                    btn.textContent = 'Hide details';
+                }
+            });
+        });
+
+        // Прокрутка к форме
+        document.querySelectorAll('.order-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const form = document.querySelector('#contact');
+                form.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const dots = document.querySelectorAll('.carousel-dots .dot');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                currentIndex = idx;
+                updateCarousel(currentIndex);
+            });
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % dots.length;
+            updateCarousel(currentIndex);
+        }, 5000);
+    </script>
+
+
+
+
+
+
 
 </body>
 
@@ -186,3 +360,5 @@
 
 <!-- чат id через бота  + создать бота  и взятиь его токен  -->
 <!-- добавить фейсбук  аккаунт  -->
+<!-- python3 -m http.server 8000  -->
+<!-- http://172.20.10.3:8000  -->
