@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Bar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- BURGER MENU ONLY -->
+    <div class="burger-menu">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/yyc_show_bar?igsh=aG4xeDR4NWFlaGpn&utm_source=qr" target="_blank"
+            aria-label="Instagram">
+            <img src="img/instagram.svg" alt="Instagram" />
+        </a>
+        <a href="https://www.tiktok.com/@yyc.show.bar?_t=ZM-8z1Oi0Geedp&_r=1" target="_blank" aria-label="TikTok">
+            <img src="img/tiktok.svg" alt="TikTok" />
+        </a>
+
+        <a href="#" target="_blank" aria-label="Facebook">
+            <img src="img/facebook.svg" alt="Facebook" />
+        </a>
+    </div>
+
+
+
+
+    <section id="home" class="hero-section">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="video/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-gradient"></div>
+        <div class="hero-content">
+            <h1>Welcome to Show Bar</h1>
+            <p>Premium cocktail experiences. Anywhere.</p>
+            <a href="#services" class="btn">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="menu-section">
+        <h2>Our Services</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="img/catering.jpg" alt="Cocktail Catering" />
+                <h3>Cocktail Catering</h3>
+                <p>Professional cocktail service for events, parties and corporate gatherings.</p>
+            </div>
+            <div class="menu-item">
+                <img src="img/bartender.jpg" alt="Bartender Show" />
+                <h3>Bartender Show</h3>
+                <p>Spectacular bartender performances with flair, fire, and fun.</p>
+            </div>
+            <div class="menu-item">
+                <img src="img/tower.jpg" alt="Champagne Tower" />
+                <h3>Champagne Tower</h3>
+                <p>Elegant champagne towers for weddings, galas, and luxury events.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>We provide fully equipped cocktail catering bars for outdoor and indoor private events, weddings, festivals,
+            and corporate functions. Our mobile bar service brings professional bartenders and premium drink experiences
+            directly to your party.</p>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Want to leave your request?</h2>
+        <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 20px;">Complete the form below and receive an answer in
+            any form comfortable for you</p>
+        <form id="contact-form">
+            <input type="date" id="event-date" required />
+
+            <div class="checkbox-grid">
+                <label class="checkbox-card">
+                    <input type="checkbox" name="service" value="Cocktail Catering" />
+                    <span>Cocktail Catering</span>
+                </label>
+                <label class="checkbox-card">
+                    <input type="checkbox" name="service" value="Bartender Show" />
+                    <span>Bartender Show</span>
+                </label>
+                <label class="checkbox-card">
+                    <input type="checkbox" name="service" value="Champagne Tower" />
+                    <span>Champagne Tower</span>
+                </label>
+            </div>
+
+            <input type="text" id="city" placeholder="City*" required />
+            <input type="number" id="guests" placeholder="Number of guests (approximately)" />
+            <textarea id="wishes" placeholder="Your wishes..."></textarea>
+            <input type="text" id="name" placeholder="Your name*" required />
+            <input type="tel" id="phone" placeholder="Phone number*" required />
+            <input type="email" id="email" placeholder="Email*" required />
+            <select id="contact-method" required>
+                <option value="">How would you like us to contact you?*</option>
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+                <option value="whatsapp">WhatsApp</option>
+            </select>
+
+            <button type="submit" class="form-button">Send a form</button>
+        </form>
+
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Show Bar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const token = '6768712536:AAE9rBBMG3Loj5ji5WOUU_UkAl3yTXHzXjU';
+            const chatId = '593469857';
+
+            const date = document.getElementById('event-date').value;
+            const city = document.getElementById('city').value;
+            const guests = document.getElementById('guests').value;
+            const wishes = document.getElementById('wishes').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const contactMethod = document.getElementById('contact-method').value;
+
+            const services = [...document.querySelectorAll('input[name="service"]:checked')]
+                .map(cb => cb.value)
+                .join(', ') || 'Not selected';
+
+            const message = `
+<b>📅 Event Date:</b> ${date}
+<b>🌍 City:</b> ${city}
+<b>👥 Guests:</b> ${guests || 'Not specified'}
+<b>🍸 Services:</b> ${services}
+<b>💬 Wishes:</b> ${wishes || 'None'}
+<b>🙋 Name:</b> ${name}
+<b>📞 Phone:</b> ${phone}
+<b>✉️ Email:</b> ${email}
+<b>📲 Contact by:</b> ${contactMethod}
+`;
+
+            fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=HTML`
+            })
+                .then(res => {
+                    if (res.ok) {
+                        alert('✅ Form sent successfully!');
+                        document.getElementById('contact-form').reset();
+                    } else {
+                        alert('⚠️ Error sending form. Please try again.');
+                    }
+                })
+                .catch(() => {
+                    alert('🚫 Network error. Please check your connection.');
+                });
+        });
+    </script>
+
+
+</body>
+
+</html>
+
+<!-- чат id через бота  + создать бота  и взятиь его токен  -->
+<!-- добавить фейсбук  аккаунт  -->
